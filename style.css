@@ -1,0 +1,137 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+
+body{
+margin: 0;
+padding: 0;
+font-family: 'Ubuntu', Helvetica, sans-serif;
+box-sizing: border-box;
+background: rgb(4, 7, 13);
+}
+
+.section-wrapper{
+background: rgb(4, 7, 13);
+padding: 15px;
+}
+
+.container{
+background: #f3f3f3;
+position: relative;
+width: 100%;
+box-sizing: border-box;
+padding: 20px;
+margin: 0 auto;
+border-radius: 4px;
+}
+
+.form-container{
+background: #222;
+display: flex;
+border-radius: 4px;
+}
+
+.todo-form{
+position: relative;
+width: 100%;
+}
+
+.form{
+width: calc(100% - 55px);
+height: 30px;
+margin: 10px;
+border: 2px solid white;
+transition: width 0.3s ease-out;
+position: relative;
+}
+.form:focus{
+    outline: none;
+}
+todo-header {
+display: inline-block;
+margin-top: 5px;
+line-height: 0.5em;
+}
+.todo-items-wrapper{
+padding: 20px;
+margin-top: 2px;
+background: #1d1e20;
+border-radius: 4px;
+height: auto;
+margin-bottom: 40px;
+}
+
+.todo-form span{
+position: absolute;
+right: 30px;
+width: 70px;
+height: 30px;
+margin: 10px;
+}
+.todo-form .todo-btn, .clear-localstorage{
+width: 73px;
+height: 36px;
+right: -39%;
+position: relative;
+background: cornflowerblue;
+border: none;
+padding: 0;
+color: white;
+}
+
+.todo-form .todo-btn, .clear-localstorage:hover{
+cursor: pointer;
+background: rgb(57, 108, 202);
+}
+.todo-list{
+margin: 0;
+list-style-type: none;
+padding: 0;
+display: grid;
+place-items: center;
+}
+.clear-localstorage{
+position: fixed;
+bottom: 10px;
+right: 10px;
+height: 45px;
+width: 60px;
+border-radius: 5%;
+background: #0d5ef4;
+}
+.todo-items-wrapper .todo-list .todo-item{
+border-bottom: #18191a;
+padding: 10px;
+background: rgba(54, 62, 66, 0.67);
+margin: 10px;
+color: floralwhite;
+border-radius: 3px;
+width: 100%;
+transition:background .2s cubic-bezier(.46,.03,.52,.96);
+}
+
+.todo-items-wrapper .todo-list .todo-item:nth-child(2n){
+    background: #282827d4;
+    }
+.todo-items-wrapper .todo-list .todo-item:hover{
+    background: rgb(234 14 53 / 92%);
+    cursor: pointer;
+}
+
+.test{
+    height: 200px;
+    width: 300px;
+    background-repeat: no-repeat;
+    background: url(g874.png);
+    background-size: contain;
+}
+
+@media screen and (min-width:360px) {
+    .container{
+        max-width: 90%;
+    }
+
+}
+@media screen and (min-width:700px) {
+    .container{
+        max-width: 70%;
+    }
+}
