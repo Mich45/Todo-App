@@ -12,17 +12,17 @@ const capitalize = (str) => {
   return capitalizedString
 }
 
-class newTodo{
-  constructor(getStorage, ulList, capitalize){
+class newTodo {
+  constructor(getStorage, ulList, capitalize) {
     this.getStorage = getStorage;
-    this.ulList  = ulList;
+    this.ulList = ulList;
     this.capitalize = capitalize;
   }
-  updateDOM(){
+  updateDOM() {
     let formInput = document.querySelector("#form-input").value;
     let storage = this.getStorage;
     let capitalizeString = this.capitalize;
-    function createTodo(formValue){
+    function createTodo(formValue) {
       let todoObj = {};
       todoObj.content = formValue;
       todoObj.completed = false;
@@ -33,7 +33,8 @@ class newTodo{
       createlistItem.textContent = capitalizeString(todoObj.content);
       createlistItem.setAttribute("class", "todo-item");
       const spanElement = document.createElement("span");
-      //const icon = 
+      spanElement.setAttribute('class', 'spanClass');
+      spanElement.innerHTML = '<i id="list-icon" class="material-icons">auto_delete</i><i id="list-icon" class="material-icons">face</i>';
       createlistItem.appendChild(spanElement);
       getUlList.appendChild(createlistItem);
       //createlistItem.textContent
@@ -41,33 +42,37 @@ class newTodo{
     createTodo(formInput);
   };
 
-  clearFormValue(){
+  clearFormValue() {
     return todoValue === '';
   }
 
   // Get todos from storage
-  retrieveStorage(){
+  retrieveStorage() {
     let storage = this.getStorage;
-      if(storage.length !== 0){
-        for(let storedTodo of Object.entries(storage)){
-          const createlistItem = document.createElement("li");
-          createlistItem.textContent = storedTodo[1];
-          createlistItem.setAttribute("class", "todo-item");
-          getUlList.appendChild(createlistItem);
-          hElement.style.display = 'none'
-        }
-      }else{
-        hElement.style.display = 'block';
+    if (storage.length !== 0) {
+      for (let storedTodo of Object.entries(storage)) {
+        const createlistItem = document.createElement("li");
+        createlistItem.textContent = storedTodo[1];
+        createlistItem.setAttribute("class", "todo-item");
+        const spanElement = document.createElement("span");
+        spanElement.setAttribute('class', 'spanClass');
+        spanElement.innerHTML = '<i id="list-icon" class="material-icons">auto_delete</i><i id="list-icon" class="material-icons">face</i>';
+        createlistItem.appendChild(spanElement);
+        getUlList.appendChild(createlistItem);
+        hElement.style.display = 'none'
       }
+    } else {
+      hElement.style.display = 'block';
+    }
   }
 
- // Check if todos is not empty
-  checkTodos(){
+  // Check if todos is not empty
+  checkTodos() {
     let storage = this.getStorage
-    if(storage.length !== 0){
+    if (storage.length !== 0) {
       hElement.style.display = 'none';
-    }else{
-      hElement.style.display = 'block'; 
+    } else {
+      hElement.style.display = 'block';
     }
   }
 
@@ -78,24 +83,26 @@ class newTodo{
     const mainSection = document.querySelector("section")
     mainSection.setAttribute("id", "modal-activated");
     const modalBox = document.getElementById("modal-box");
-    modalBox.style.display = "block";
+    modalBox.style.display = "flex";
+    modalBox.style.alignItems = "center";
+    modalBox.style.flexDirection = "column";
 
     const deleteButton = document.getElementById("button-1");
     const cancelButton = document.getElementById("button-2");
-    
-    deleteButton.addEventListener('click', function clearLocalStorage(){
+
+    deleteButton.addEventListener('click', function clearLocalStorage() {
       modalBox.style.display = "none";
       mainSection.removeAttribute('id');
       storage.clear();
-      if(storage.length === 0){
+      if (storage.length === 0) {
         hElement.style.display = 'block';
         let listItem = document.getElementsByClassName('todo-item');
-        for(let item of Object.entries(listItem)){
+        for (let item of Object.entries(listItem)) {
           getUlList.removeChild(item[1])
         }
       }
     });
-    cancelButton.addEventListener('click', function (){
+    cancelButton.addEventListener('click', function () {
       modalBox.style.opacity = 0;
       //modalBox.style.display = "none";
       mainSection.removeAttribute('id');
@@ -103,19 +110,19 @@ class newTodo{
   }
 };
 dateElement.innerText = new Date().toLocaleDateString('en-GB', {
-  day : 'numeric',
-  month : 'short',
-  weekday : 'short'
-  });
+  day: 'numeric',
+  month: 'short',
+  weekday: 'short'
+});
 const Todo = new newTodo(myStorage, getUlList, capitalize);
-todoForm.addEventListener("submit", (e) =>{
+todoForm.addEventListener("submit", (e) => {
   e.preventDefault();
   Todo.updateDOM();
   Todo.checkTodos();
   Todo.clearFormValue();
 });
 const clearBtn = document.querySelector('.clear-localstorage');
-clearBtn.addEventListener('click', () =>{
+clearBtn.addEventListener('click', () => {
   Todo.showModal()
 });
 document.addEventListener('load', Todo.retrieveStorage());

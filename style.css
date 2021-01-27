@@ -1,204 +1,234 @@
-@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu&display=swap");
 
-:root{
---blue-color: #0d5ef4;
---blue-color-hover: rgb(57, 108, 202);
---font-color: aqua;
+:root {
+  --blue-color: #0d5ef4;
+  --blue-color-hover: rgb(57, 108, 202);
+  --font-color: aqua;
+  --red-color : #e72f2f;
 }
 @font-face {
-font-family: "Flama";
-src: url("/fonts/FlamaRegular.otf") format("opentype");
-} 
-
-body{
-margin: 0;
-padding: 0;
-font-family: 'Flama', Helvetica, sans-serif;
-box-sizing: border-box;
-background: rgb(4, 7, 13);
+  font-family: "Flama";
+  src: url("/fonts/FlamaRegular.otf") format("opentype");
 }
 
-.section-wrapper{
-background: rgb(4, 7, 13);
-padding: 15px;
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Flama", Helvetica, sans-serif;
+  box-sizing: border-box;
+  background: rgb(4, 7, 13);
 }
 
-.container{
-background: #f3f3f3;
-position: relative;
-width: 100%;
-box-sizing: border-box;
-padding: 20px;
-margin: 0 auto;
-border-radius: 4px;
-}
-.todo-header{
-display: flex;
-justify-content: space-between;
-align-items: center;
-margin-top: 5px;
-line-height: 0.5em;
-}
-.form-container{
-background: #222;
-display: flex;
-border-radius: 4px;
+.section-wrapper {
+  background: rgb(4, 7, 13);
+  padding: 15px;
 }
 
-.todo-form{
-position: relative;
-width: 100%;
-display: flex;
-justify-content: space-between;
+.container {
+  background: #f3f3f3;
+  position: relative;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 20px;
+  margin: 0 auto;
+  border-radius: 4px;
 }
-.todo-button{
-background-color: var(--blue-color);
-border: none;
-width: 60px;
-border-radius: 2px;
+h1 {
+  font-family: "Ubuntu";
 }
-.todo-button:hover{
-    cursor: pointer;
+.todo-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 5px;
+  line-height: 0.5em;
 }
-.todo-form .todo-button span{
+.form-container {
+  background: #222;
+  display: flex;
+  border-radius: 4px;
+}
+.todo-form {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.todo-button {
+  background-color: var(--blue-color);
+  border: none;
+  width: 60px;
+  border-radius: 2px;
+}
+.todo-button:hover {
+  cursor: pointer;
+}
+.todo-form .todo-button span {
+    font-size: 36px;
+}
+.form {
+  width: auto;
+  height: 30px;
+  margin: 10px;
+  border: none;
+  transition: width 0.3s ease-out;
+  position: relative;
+  background: transparent;
+  color: #f7f5f3;
+  font-size: 16px;
+  flex-grow: 1;
+}
+.form:focus {
+  outline: none;
+}
 
+.todo-items-wrapper {
+  padding: 20px;
+  margin-top: 2px;
+  background: #1d1e20;
+  border-radius: 4px;
+  height: auto;
+  margin-bottom: 40px;
 }
-.form{
-width: auto;
-height: 30px;
-margin: 10px;
-border: none;
-transition: width 0.3s ease-out;
-position: relative;
-background: transparent;
-color: #f7f5f3;
-font-size: 16px;
-flex-grow: 1;
-}
-.form:focus{
-    outline: none;
-}
-
-.todo-items-wrapper{
-padding: 20px;
-margin-top: 2px;
-background: #1d1e20;
-border-radius: 4px;
-height: auto;
-margin-bottom: 40px;
-}
-.todo-form .todo-btn{
-width: 73px;
-height: 36px;
-right: -39%;
-position: relative;
-background: var(--blue-color);
-border: none;
-padding: 0;
-color: white;
+.todo-form .todo-btn {
+  width: 73px;
+  height: 36px;
+  right: -39%;
+  position: relative;
+  background: var(--blue-color);
+  border: none;
+  padding: 0;
+  color: white;
 }
 
-.todo-form .todo-btn:hover{
-cursor: pointer;
-background: var(--blue-color-hover);
+.todo-form .todo-btn:hover {
+  cursor: pointer;
+  background: var(--blue-color-hover);
 }
-.todo-list{
-margin: 0;
-list-style-type: none;
-padding: 0;
-display: grid;
-place-items: center;
+.todo-list {
+  margin: 0;
+  list-style-type: none;
+  padding: 0;
+  display: grid;
+  place-items: center;
 }
 .material-icons {
- color: rgba(255, 255, 255, 1); 
+  color: rgba(255, 255, 255, 1);
 }
-.todo-holder{
-    color: white;
+.todo-holder {
+  color: white;
 }
-.clear-localstorage{
-position: fixed;
-bottom: 10px;
-right: 10px;
-height: 45px;
-width: 75px;
-border-radius: 5%;
-background: var(--blue-color);
-border: none;
-color: white;
+.clear-localstorage {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  height: 45px;
+  width: 101px;
+  border-radius: 5%;
+  background: var(--blue-color);
+  border: none;
+  color: white;
+  display: flex;  
+  align-items: center;
+  justify-content: space-evenly;
 }
-.clear-localstorage:hover{
-    content: 'Hello';
-    background: #e72f2f;
+.clear-localstorage:hover {
+  content: "Hello";
+  background: var(--red-color);
 }
-.todo-items-wrapper .todo-list .todo-item{
-border-bottom: #18191a;
-padding: 10px;
-background: rgba(54, 62, 66, 0.67);
-margin: 10px;
-color: floralwhite;
-border-radius: 3px;
-width: 100%;
-transition:background .2s cubic-bezier(.46,.03,.52,.96);
+.todo-items-wrapper .todo-list .todo-item {
+  border-bottom: #18191a;
+  padding: 10px;
+  background: rgba(54, 62, 66, 0.67);
+  margin: 10px;
+  color: floralwhite;
+  border-radius: 3px;
+  width: 100%;
+  transition: background 0.2s cubic-bezier(0.46, 0.03, 0.52, 0.96);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
-
-#modal-activated{
-    filter: brightness(35%);
-    pointer-events: none;
-}
-.modal-box{
-    display: none;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 245px;
-    height: 170px;
-    background: #fff;
-    border-radius: 4px;
-}
-.modal-text{
-     padding: 5px 10px 0 10px;
-}
-#modal-buttons{
-    display: flex;
-    justify-content: space-evenly;
-}
-.modal-button{
-    width: 80px;
-    height: 40px;
-    background: #0d5ef4;
-    color: white;
-    border: none;
-    border-radius: 2px;
-    margin-top: 35px;
-}
-.modal-button:hover{
-    background: #e72f2f;
-}
-.todo-items-wrapper .todo-list .todo-item:nth-child(2n){
+.todo-items-wrapper .todo-list .todo-item:nth-child(2n) {
     background: #282827d4;
     border-left-style: solid;
-    }
-.todo-items-wrapper .todo-list .todo-item:hover{
+  }
+  .todo-items-wrapper .todo-list .todo-item:hover {
     background: rgb(234 14 53 / 92%);
     cursor: pointer;
+  }
+.spanClass{
+    opacity: 0;
+    transition: opacity .5s ease-in;
 }
-.test{
-    height: 200px;
-    width: 300px;
-    background-repeat: no-repeat;
-    background: url(g874.png);
-    background-size: contain;
+.spanClass:hover{
+    display: flex;
+    opacity: 1;
+}
+#list-icon:nth-child(1){
+    padding-right: 5px;
+}
+#list-icon:hover{
+    color: #10dbf0;
+}
+#modal-activated {
+  filter: brightness(35%);
+  pointer-events: none;
+}
+.modal-box {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 245px;
+  height: 170px;
+  background: #fff;
+  border-radius: 4px;
+}
+#modal-icon{
+    color: var(--red-color);
+    font-size: 64px;
+}
+.modal-text {
+
+}
+#modal-buttons {
+  display: flex;
+  justify-content: space-evenly;
+}
+.modal-button {
+  width: 80px;
+  height: 40px;
+  background: #0d5ef4;
+  color: white;
+  border: none;
+  border-radius: 2px;
+  margin-right: 10px;
+  font-size: 14px;
+  font-weight: bold;
+}
+.modal-button:hover {
+  background: var(--red-color);
+}
+.modal-button:nth-last-child():hover{
+    background: blue;
+}
+.test {
+  height: 200px;
+  width: 300px;
+  background-repeat: no-repeat;
+  background: url(g874.png);
+  background-size: contain;
 }
 
-@media screen and (min-width:360px) {
-    .container{
-        max-width: 90%;
-    }
-
+@media screen and (min-width: 360px) {
+  .container {
+    max-width: 90%;
+  }
 }
-@media screen and (min-width:700px) {
-    .container{
-        max-width: 70%;
-    }
+@media screen and (min-width: 700px) {
+  .container {
+    max-width: 70%;
+  }
 }
