@@ -5,11 +5,15 @@
 --blue-color-hover: rgb(57, 108, 202);
 --font-color: aqua;
 }
+@font-face {
+font-family: "Flama";
+src: url("/fonts/FlamaRegular.otf") format("opentype");
+} 
 
 body{
 margin: 0;
 padding: 0;
-font-family: 'Ubuntu', Helvetica, sans-serif;
+font-family: 'Flama', Helvetica, sans-serif;
 box-sizing: border-box;
 background: rgb(4, 7, 13);
 }
@@ -29,9 +33,11 @@ margin: 0 auto;
 border-radius: 4px;
 }
 .todo-header{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+display: flex;
+justify-content: space-between;
+align-items: center;
+margin-top: 5px;
+line-height: 0.5em;
 }
 .form-container{
 background: #222;
@@ -48,6 +54,8 @@ justify-content: space-between;
 .todo-button{
 background-color: var(--blue-color);
 border: none;
+width: 60px;
+border-radius: 2px;
 }
 .todo-button:hover{
     cursor: pointer;
@@ -70,11 +78,7 @@ flex-grow: 1;
 .form:focus{
     outline: none;
 }
-.todo-header {
-display: inline-block;
-margin-top: 5px;
-line-height: 0.5em;
-}
+
 .todo-items-wrapper{
 padding: 20px;
 margin-top: 2px;
