@@ -34,7 +34,7 @@ class newTodo {
       createlistItem.setAttribute("class", "todo-item");
       const spanElement = document.createElement("span");
       spanElement.setAttribute('class', 'spanClass');
-      spanElement.innerHTML = '<i id="list-icon" class="material-icons">auto_delete</i><i id="list-icon" class="material-icons">face</i>';
+      spanElement.innerHTML = '<i id="list-icon" class="material-icons">delete</i>';
       createlistItem.appendChild(spanElement);
       getUlList.appendChild(createlistItem);
       //createlistItem.textContent
