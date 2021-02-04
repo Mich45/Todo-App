@@ -33,7 +33,7 @@ body {
   margin: 0 auto;
   border-radius: 4px;
 }
-h1 {
+p {
   font-family: "Ubuntu";
 }
 .todo-header {
@@ -42,6 +42,7 @@ h1 {
   align-items: center;
   margin-top: 5px;
   line-height: 0.5em;
+  font-family: "Ubuntu";
 }
 .form-container {
   background: #222;
@@ -159,17 +160,30 @@ h1 {
   }
 .spanClass{
     opacity: 0;
-    transition: opacity .5s ease-in;
+    transition: opacity .3s cubic-bezier(.47,0,.74,.71);;
 }
-.spanClass:hover{
-    display: flex;
+.todo-items-wrapper .todo-list .todo-item:hover .spanClass{
     opacity: 1;
 }
-#list-icon:nth-child(1){
-    padding-right: 5px;
+#list-icon{
+display: inline-block;
+background-color: transparent, transparent;
+width: 30px;
+height: 30px;
+border-radius: 50%;
+padding: 5px 0 0 5px;
+box-shadow: none;
+transition: background-color, box-shadow .2s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
+
 #list-icon:hover{
-    color: #10dbf0;
+    color: #fff;
+    background-color: rgb(28, 29, 30);
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2)
+}
+#list-icon:hover::before{
+  display: inline-block;
+  z-index: 0;
 }
 #modal-activated {
   filter: brightness(35%);
